@@ -7,7 +7,7 @@ import "./App.scss";
 function App() {
   return (
     <div className="App shadow-01dp">
-      {/* <Modal /> */}
+      <Modal />
       <Search />
       <UserList />
     </div>

@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { AppThunk, RootState } from "./index";
+import { createSlice } from "@reduxjs/toolkit";
+import { RootState } from "./index";
 
 interface ModalState {
   isOpen: boolean;

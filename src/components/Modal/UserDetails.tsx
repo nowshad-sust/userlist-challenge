@@ -1,7 +1,11 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { toggleModal } from "../../store/modal";
 import { UserType } from "./types";
 
 const UserDetails = ({ name, username, email, website }: UserType) => {
+  const dispatch = useDispatch();
+
   return (
     <div className="user-details shadow-01dp">
       <h5>User Details</h5>
@@ -33,7 +37,12 @@ const UserDetails = ({ name, username, email, website }: UserType) => {
           </span>
         </li>
       </ul>
-      <button className="btn-outline btn-md">Close</button>
+      <button
+        onClick={() => dispatch(toggleModal())}
+        className="btn-outline btn-md"
+      >
+        Close
+      </button>
     </div>
   );
 };
