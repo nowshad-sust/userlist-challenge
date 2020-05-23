@@ -1,16 +1,17 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { selectModalStatus } from "../../store/modal";
+import { selectUsers } from "../../store/users";
 import UserDetails from "./UserDetails";
-import dummydata from "../../dummydata";
 import "./index.scss";
 
 const Modal = () => {
+  const { currentUser } = useSelector(selectUsers);
   const isOpen = useSelector(selectModalStatus);
 
   return (
     <div className={`modal ${isOpen ? "open" : "close"}`}>
-      <UserDetails {...dummydata[0]} />
+      {currentUser && <UserDetails {...currentUser} />}
     </div>
   );
 };
