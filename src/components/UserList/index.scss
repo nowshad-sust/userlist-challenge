@@ -4,4 +4,10 @@
   .green-blue-list-item div:hover {
     cursor: pointer;
   }
+
+  .loading,
+  .no-result {
+    font-size: 20px;
+    margin-top: 16px;
+  }
 }
