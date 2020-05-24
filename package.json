@@ -43,10 +43,12 @@
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
     "react-scripts": "3.4.1",
+    "react-transition-group": "^4.4.1",
     "typescript": "^3.9.3"
   },
   "devDependencies": {
     "@types/react-redux": "^7.1.9",
+    "@types/react-transition-group": "^4.4.0",
     "husky": "^4.2.5",
     "prettier": "^2.0.5",
     "tslint": "^6.1.2",

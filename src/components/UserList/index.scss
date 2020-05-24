@@ -1,5 +1,6 @@
 .user-list {
   margin-top: 16px;
+  min-height: 200px;
 
   .green-blue-list-item div:hover {
     cursor: pointer;
@@ -9,5 +10,20 @@
   .no-result {
     font-size: 20px;
     margin-top: 16px;
+  }
+
+  .user-list-item-enter {
+    opacity: 0;
+  }
+  .user-list-item-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+  }
+  .user-list-item-exit {
+    opacity: 1;
+  }
+  .user-list-item-exit-active {
+    opacity: 0;
+    transition: opacity 500ms ease-in;
   }
 }

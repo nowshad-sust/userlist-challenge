@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { fetchUsers, filterUsers, selectUsers } from "../../store/users";
 import { selectKeyword } from "../../store/search";
 import ListItem from "./ListItem";
@@ -19,16 +20,34 @@ const UserList = () => {
   }, [keyword, dispatch]);
 
   const LoadingSection = (
-    <div className="loading listing">Loading users...</div>
+    <TransitionGroup className="user-list-group">
+      <CSSTransition timeout={400} classNames="user-list-item">
+        <div className="loading listing">Loading users...</div>
+      </CSSTransition>
+    </TransitionGroup>
   );
 
-  const NoResultsSection = <div className="no-result listing">No results</div>;
+  const NoResultsSection = (
+    <TransitionGroup className="user-list-group">
+      <CSSTransition timeout={400} classNames="user-list-item">
+        <div className="no-result listing">No results</div>
+      </CSSTransition>
+    </TransitionGroup>
+  );
 
   const userList = (
     <ul className="green-blue-list">
-      {filteredUsers.map((user) => (
-        <ListItem key={user.id} {...user} />
-      ))}
+      <TransitionGroup className="user-list-group">
+        {filteredUsers.map((user, index) => (
+          <CSSTransition
+            key={user.id}
+            timeout={400}
+            classNames="user-list-item"
+          >
+            <ListItem key={user.id} {...user} />
+          </CSSTransition>
+        ))}
+      </TransitionGroup>
     </ul>
   );
 
