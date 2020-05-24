@@ -1,13 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { AppThunk, RootState } from "./index";
-
-interface User {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  website: string;
-}
+import { AppThunk, RootState } from "../../store/index";
+import { User } from "./types";
 
 interface UsersState {
   allUsers: User[];
@@ -67,8 +60,17 @@ export const fetchUsers = (): AppThunk => async (dispatch) => {
     alert("Failed to fetch data!");
   } else {
     const users = await res.json();
-    dispatch(setAllUsers(users.slice(0, 5)));
-    dispatch(setFilteredUsers(users.slice(0, 5)));
+    const formattedUsers = users
+      .slice(0, 5)
+      .map(({ id, name, username, email, website }: User) => ({
+        id,
+        name,
+        username,
+        email,
+        website,
+      }));
+    dispatch(setAllUsers(formattedUsers));
+    dispatch(setFilteredUsers(formattedUsers));
     dispatch(setLoading(false));
   }
 };

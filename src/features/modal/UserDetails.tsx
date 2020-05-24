@@ -1,9 +1,9 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { toggleModal } from "../../store/modal";
-import { UserType } from "./types";
+import { toggleModal } from "./store";
+import { User } from "../users/types";
 
-const UserDetails = ({ name, username, email, website }: UserType) => {
+const UserDetails = ({ id, name, username, email, website }: User) => {
   const dispatch = useDispatch();
 
   return (
@@ -31,7 +31,7 @@ const UserDetails = ({ name, username, email, website }: UserType) => {
         <li className="green-blue-list-item">
           <span className="label listing">Website: </span>
           <span className="listing">
-            <a href={website}>
+            <a href={"//" + website} target="_blank" rel="noopener noreferrer">
               <b>{website}</b>
             </a>
           </span>

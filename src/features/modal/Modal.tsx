@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
 import { useSelector } from "react-redux";
 import { CSSTransition } from "react-transition-group";
-import { selectModalStatus } from "../../store/modal";
-import { selectUsers } from "../../store/users";
+import { selectModalStatus } from "./store";
+import { selectUsers } from "../users/store";
 import UserDetails from "./UserDetails";
-import "./index.scss";
+import "./styles.scss";
 
 const Modal = () => {
   const { currentUser } = useSelector(selectUsers);

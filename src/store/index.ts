@@ -1,7 +1,7 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-import searchReducer from "./search";
-import modalReducer from "./modal";
-import usersReducer from "./users";
+import searchReducer from "../features/search/store";
+import modalReducer from "../features/modal/store";
+import usersReducer from "../features/users/store";
 
 export const store = configureStore({
   reducer: {

@@ -1,7 +1,7 @@
 import React from "react";
-import UserList from "./components/UserList";
-import Search from "./components/Search";
-import Modal from "./components/Modal";
+import UserList from "./features/users/UserList";
+import Search from "./features/search/Search";
+import Modal from "./features/modal/Modal";
 import "./App.scss";
 
 function App() {

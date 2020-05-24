@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { updateKeyword, selectKeyword } from "../../store/search";
+import { updateKeyword, selectKeyword } from "./store";
 
-import "./index.scss";
+import "./styles.scss";
 
 const Search = () => {
   const keyword = useSelector(selectKeyword);
