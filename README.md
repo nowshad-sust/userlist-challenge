@@ -9,6 +9,9 @@ https://codesandbox.io/s/github/nowshad-sust/userlist-challenge
 - A search input field filters the list real time.
 - Clicking on a single user opens up a modal with user details.
 
+### Project Kanban board
+https://github.com/nowshad-sust/userlist-challenge/projects/1
+
 ## Technical details
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
