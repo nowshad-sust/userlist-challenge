@@ -6,8 +6,9 @@ import { updateKeyword } from "./store";
 import Search from "./Search";
 
 describe("Search", () => {
-  it("renders without crashing", () => {
-    shallow(
+  let wrapper;
+  beforeEach(() => {
+    wrapper = mount(
       <Provider store={store}>
         <Search />
       </Provider>
@@ -15,12 +16,6 @@ describe("Search", () => {
   });
 
   it("Search input field values", (done) => {
-    const wrapper = mount(
-      <Provider store={store}>
-        <Search />
-      </Provider>
-    );
-
     // check the default value
     expect(wrapper.find("input").first().getElement().props.value).toEqual("");
 

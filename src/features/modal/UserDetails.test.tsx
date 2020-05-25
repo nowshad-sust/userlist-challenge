@@ -13,8 +13,9 @@ describe("UserDetails", () => {
     website: "hildegard.org",
   };
 
-  it("renders without crashing", () => {
-    shallow(
+  let wrapper;
+  beforeEach(() => {
+    wrapper = mount(
       <Provider store={store}>
         <UserDetails {...props} />
       </Provider>
@@ -23,12 +24,6 @@ describe("UserDetails", () => {
 
   it("close button click", () => {
     const modalStatus = store.getState().modal.isOpen;
-    const wrapper = mount(
-      <Provider store={store}>
-        <UserDetails {...props} />
-      </Provider>
-    );
-
     // check if modal state toggles on button click
     wrapper.find("button").simulate("click");
     expect(modalStatus).toBe(!store.getState().modal.isOpen);

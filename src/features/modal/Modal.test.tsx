@@ -6,31 +6,30 @@ import { toggleModal } from "./store";
 import Modal from "./Modal";
 
 describe("Modal", () => {
-  it("renders modal", () => {
-    const wrapper = shallow(
+  let wrapper;
+  beforeEach(() => {
+    wrapper = mount(
       <Provider store={store}>
         <Modal />
       </Provider>
     );
+  });
+
+  it("renders modal", () => {
     expect(wrapper.html()).toEqual('<div class="modal close"></div>');
   });
 
   it("does not render UserDetails by default", () => {
-    const wrapper = mount(
-      <Provider store={store}>
-        <Modal />
-      </Provider>
-    );
     expect(wrapper.exists("UserDetails")).toEqual(false);
   });
 
-  it("model is open when state is open", () => {
+  it("model is open when state is open", (done) => {
     store.dispatch(toggleModal());
-    const wrapper = mount(
-      <Provider store={store}>
-        <Modal />
-      </Provider>
-    );
-    expect(wrapper.html()).toEqual('<div class="modal open"></div>');
+    process.nextTick(() => {
+      wrapper.update();
+      // As transition involved with delay, check only if it's not in the initial state
+      expect(wrapper.html()).not.toEqual('<div class="modal close"></div>');
+      done();
+    });
   });
 });
